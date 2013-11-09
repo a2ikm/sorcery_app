@@ -5,4 +5,12 @@ class Staff < ActiveRecord::Base
   validates_presence_of :password,  :on => :create
   validates_presence_of :username
   validates_uniqueness_of :username
+
+  def self.authenticate(*args)
+    if staff = self.find_by_username(args[0]) and staff.active?
+      super(*args)
+    else
+      nil
+    end
+  end
 end
