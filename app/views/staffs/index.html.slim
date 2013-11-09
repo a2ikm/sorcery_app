@@ -1,0 +1,16 @@
+h1 スタッフ一覧
+
+table
+  tr
+    th.header ID
+    th.header username
+    th.header email
+    th.header active
+
+  - @staffs.each do |staff|
+    tr
+      td = staff.id
+      td = staff.username
+      td = staff.email
+      td == staff.active? ? '<span class="green">YES</span>' : '<span class="red">YES</span>'
+

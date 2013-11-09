@@ -1,4 +1,10 @@
 class StaffsController < ApplicationController
+  before_filter :require_login, only: [:index]
+
+  def index
+    @staffs = Staff.all
+  end
+
   def new
     @staff = Staff.new
   end
